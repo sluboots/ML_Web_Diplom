@@ -1,0 +1,21 @@
+{%  extends 'base.html'  %}
+{% block content %}
+            <h2 class="card-header"> Все найденные Резюме:</h2>
+            {% for item in resume %}
+            <div class="card mb-3">
+                <div class="card-body mx-2">
+                    <div class="media">
+                        <div class="media-body">
+                            <h5 class="card-title">Вакансия</h5>
+                            <p class="class-text">Кластер: {{ item.cluster }}</p>
+                            <p class="card-text">Описание вакансии: {{ item.vacancy|safe|linebreaks|truncatewords:50 }}</p>
+                            <a href="#" class="btn btn-primary">Read more...</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer text-muted">
+                    Дата поиска: {{ item.created_at|date:"Y-m-d H:i:s" }}
+                </div>
+            </div>
+            {% endfor %}
+{% endblock %}
