@@ -1,0 +1,25 @@
+
+
+
+
+ <!-- Header Section -->
+  <header class="header">
+    <div class="container container--narrow">
+      <nav class="header__nav">
+        <input type="checkbox" id="responsive-menu" />
+        <ul class="header__menu">
+        <li class="header__menuItem"><a href="{% url 'home' %}">Главная</a></li>
+            {% if request.user.is_authenticated %}
+                <li class="header__menuItem"><a href="{% url 'find_vacancy' %}">Найти вакансии</a></li>
+                <li class="header__menuItem"><a href="{% url 'find_resume' %}">Найти работников</a></li>
+                <li class="header__menuItem"><a href="{% url 'view_vacancy' %}">Посмотреть найденные вакансии</a></li>
+                <li class="header__menuItem"><a href="{% url 'view_resume' %}">Посмотреть найденные резюме</a></li>
+                <li class="header__menuItem"><a href="{% url 'account' %}">Мой аккаунт</a></li>
+                <li class="header__menuItem"><a href="{% url 'logout' %}" class="btn btn--sub">Выход</a></li>
+            {% else %}
+            <li class="header__menuItem"><a href="{% url 'login' %}" class="btn btn--sub">Login/Sign Up</a></li>
+            {% endif %}
+        </ul>
+      </nav>
+    </div>
+  </header>
